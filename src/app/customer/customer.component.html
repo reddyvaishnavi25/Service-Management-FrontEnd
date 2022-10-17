@@ -1,0 +1,26 @@
+<div class="container">
+    <button type="button" (click)="button()"> get data</button>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>CustomerId</th>&nbsp;&nbsp;
+            <th>FirstName</th>&nbsp;&nbsp;
+            <th>LastName</th>&nbsp;&nbsp;
+            <th>Email</th>&nbsp;&nbsp;
+            <th>PhoneNumber</th>&nbsp;&nbsp;
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let customer of customers">
+            <td>{{customer.id}}</td>&nbsp;&nbsp;
+            <td>{{customer.first_name}}</td>&nbsp;&nbsp;
+            <td>{{customer.last_name}}</td>&nbsp;&nbsp;
+            <td>{{customer.email}}</td>&nbsp;&nbsp;
+            <td>{{customer.phone}}</td>
+        </tr>
+    </tbody>
+
+</table>
+
+</div>
