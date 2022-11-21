@@ -9,6 +9,11 @@ export class CustomerService {
   constructor(private http:HttpClient) { }
 
   getCustomer(){
-    return this.http.get("http://localhost:8080/Customer");
+    return this.http.get<any>("http://localhost:8080/Address");
+  }
+
+  getAddressDetails(addressId:number){
+    return this.http.get<any>(`http://localhost:8080/addressdetails/${addressId}`);
+
   }
 }
