@@ -1,11 +1,11 @@
-import { customer } from "./customer";
+import { Customer } from "./customer";
 
-export class address{
+export interface Address {
     addressId: number;
     streetAddress: string;
     city: string;
     state: string;
     country: string
-    zip : number;
-    customer:customer;
+    zip: number;
+    customerId: number;
 }

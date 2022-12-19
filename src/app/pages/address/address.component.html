@@ -1,0 +1,56 @@
+<div class="container">
+  <div class="navBar">
+    <div style="display: flex; justify-content: center; align-items: center">
+      <h1>Welcome to Service Management System</h1>
+    </div>
+    <app-logout-button></app-logout-button>
+  </div>
+  <div class="action-container">
+    <button nz-button nzType="primary" [routerLink]="['/customer']">
+      <i antIcon nz-icon></i>Back to Customer Details
+    </button>
+  </div>
+  <div class="address-details-heading-section">
+    <h2>ADDRESS DETAILS</h2>
+  </div>
+  <div class="table-section">
+    <nz-table #basicTable [nzData]="addressDetails">
+      <thead>
+        <tr>
+          <th>S No</th>
+          <th>City</th>
+          <th>Country</th>
+          <th>State</th>
+          <th>Street Address</th>
+          <th>ZIP Code</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of basicTable.data">
+          <td>{{ data.sno }}</td>
+          <td>{{ data.city }}</td>
+          <td>{{ data.country }}</td>
+          <td>{{ data.state }}</td>
+          <td>{{ data.streetAddress }}</td>
+          <td>{{ data.zip }}</td>
+          <td>
+            <nz-divider nzType="vertical"></nz-divider>
+            <button
+              nz-button
+              nz-popconfirm
+              nzPopconfirmTitle="Are you sure delete this Customer's Details?"
+              (nzOnConfirm)="confirmDelete(data.addressId, this.customerId)"
+              (nzOnCancel)="cancelDelete()"
+              nzPopconfirmPlacement="topLeft"
+              nzType="default"
+              nzDanger
+            >
+              Delete Address
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </nz-table>
+  </div>
+</div>

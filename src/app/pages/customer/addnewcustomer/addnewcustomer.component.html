@@ -1,0 +1,101 @@
+<div class="container">
+  <div class="navBar">
+    <div style="display: flex; justify-content: center; align-items: center">
+      <h1>Welcome to Service Management System</h1>
+    </div>
+    <app-logout-button></app-logout-button>
+  </div>
+  <div class="action-container">
+    <button nz-button nzType="primary" [routerLink]="['/customer']">
+      <i antIcon nz-icon></i>Back to Customer Details
+    </button>
+  </div>
+  <div class="customer-details-heading-section">
+    <h2>{{ pageTitle }}</h2>
+  </div>
+
+  <div class="add-customer-form">
+    <nz-card nzHoverable>
+      <form
+        nz-form
+        [formGroup]="validateForm"
+        class="login-form"
+        (ngSubmit)="submitForm()"
+      >
+        <nz-form-item>
+          <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="firstName"
+            >First Name</nz-form-label
+          >
+          <nz-form-control
+            [nzSm]="24"
+            [nzXs]="24"
+            nzErrorTip="Please input customer's First name!"
+          >
+            <nz-input-group>
+              <input
+                type="text"
+                nz-input
+                formControlName="firstName"
+                placeholder="First Name"
+              />
+            </nz-input-group>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="lastName"
+            >Last Name</nz-form-label
+          >
+          <nz-form-control nzErrorTip="Please input customer's Last name!">
+            <nz-input-group>
+              <input
+                type="text"
+                nz-input
+                formControlName="lastName"
+                placeholder="Last Name"
+              />
+            </nz-input-group>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="emailId"
+            >Email ID</nz-form-label
+          >
+          <nz-form-control nzErrorTip="Please input customer's Email ID!">
+            <nz-input-group>
+              <input
+                type="text"
+                nz-input
+                formControlName="emailId"
+                placeholder="Email ID"
+              />
+            </nz-input-group>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="phoneNumber"
+            >Phone Number</nz-form-label
+          >
+          <nz-form-control nzErrorTip="Please input customer's Phone Number!">
+            <nz-input-group>
+              <input
+                type="text"
+                nz-input
+                formControlName="phoneNumber"
+                placeholder="Phone Number"
+              />
+            </nz-input-group>
+          </nz-form-control>
+        </nz-form-item>
+        <div class="submitButton">
+          <button
+            nz-button
+            class="login-form-button login-form-margin"
+            [nzType]="'primary'"
+          >
+            {{ buttonTitle }}
+          </button>
+        </div>
+      </form>
+    </nz-card>
+  </div>
+</div>

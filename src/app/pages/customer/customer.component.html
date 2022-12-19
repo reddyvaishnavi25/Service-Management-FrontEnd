@@ -1,0 +1,78 @@
+<div class="container">
+  <div class="navBar">
+    <div style="display: flex; justify-content: center; align-items: center">
+      <h1>Welcome to Service Management System</h1>
+    </div>
+    <app-logout-button></app-logout-button>
+  </div>
+  <div class="action-container">
+    <button nz-button nzType="primary" [routerLink]="['/new/customer']">
+      <i antIcon nz-icon></i>Add New Customer
+    </button>
+  </div>
+  <div class="customer-details-heading-section">
+    <h2>CUSTOMER DETAILS</h2>
+  </div>
+  <div class="table-section">
+    <nz-table #basicTable [nzData]="customerDetails">
+      <thead>
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Email ID</th>
+          <th>Phone Number</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of basicTable.data">
+          
+            <td *ngIf="email===data.emailId">{{ data.firstName }}</td>
+          <td *ngIf="email===data.emailId">{{ data.lastName }}</td>
+          <td *ngIf="email===data.emailId">{{ data.emailId }}</td>
+          <td *ngIf="email===data.emailId">{{ data.phoneNumber }}</td>
+          <td *ngIf="email===data.emailId">
+            <button
+              nz-button
+              nzType="primary"
+              (click)="handleUpdateCustomer(data.customerId)"
+            >
+              Update Customer Details
+            </button>
+            <nz-divider nzType="vertical"></nz-divider>
+            <button
+              nz-button
+              nzType="primary"
+              (click)="handleAddAddress(data.customerId)"
+            >
+              Add Address
+            </button>
+            <nz-divider nzType="vertical"></nz-divider>
+            <button
+              nz-button
+              nzType="primary"
+              (click)="handleViewAddress(data.customerId)"
+            >
+              View Address(s)
+            </button>
+            <nz-divider nzType="vertical"></nz-divider>
+            <button
+              nz-button
+              nz-popconfirm
+              nzPopconfirmTitle="Are you sure delete this Customer's Details?"
+              (nzOnConfirm)="confirmDelete(data.customerId)"
+              (nzOnCancel)="cancelDelete()"
+              nzPopconfirmPlacement="topLeft"
+              nzType="default"
+              nzDanger
+            >
+              Delete Customer
+            </button>
+          </td>
+      
+          
+        </tr>
+      </tbody>
+    </nz-table>
+  </div>
+</div>

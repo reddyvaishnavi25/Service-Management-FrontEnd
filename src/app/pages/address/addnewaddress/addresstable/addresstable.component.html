@@ -1,0 +1,22 @@
+<div class="table-section">
+  <nz-table #basicTable [nzData]="addedAddressDetails">
+    <thead>
+      <tr>
+        <th>City</th>
+        <th>State</th>
+        <th>Country</th>
+        <th>Street Address</th>
+        <th>ZIP Code</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of basicTable.data">
+        <td>{{ data.city }}</td>
+        <td>{{ data.country }}</td>
+        <td>{{ data.state }}</td>
+        <td>{{ data.streetAddress }}</td>
+        <td>{{ data.zip }}</td>
+      </tr>
+    </tbody>
+  </nz-table>
+</div>
